@@ -1,6 +1,7 @@
+CXX += -std=c++0x
 CXXFLAGS += -O2
-SRCS = computeSim.cpp svm.cpp
-EXECS = computeSim
+SRCS = computeSim.cpp svm.cpp selectGreedy.cpp
+EXECS = computeSim selectGreedy
 all: $(EXECS)
 computeSim: svm.o
 

@@ -30,7 +30,7 @@ void findSim(svm_model *model, char *ofpath) {
         for (int j = 0; j <= i; j++) {
             cout << i << " " << j << endl;
             double d = euc_dist(model->SV[i], model->SV[j]);
-            res[i][j] = res[j][i] = d;
+            res[i][j] = res[j][i] = d > 0 ? (1.0 / d) : 1.0; // use 1/d as the similarity
         }
     }
 
