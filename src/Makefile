@@ -1,9 +1,10 @@
-CXX += -std=c++0x
+CXX += -std=c++0x -g
 CXXFLAGS += -O2
-SRCS = computeSim.cpp svm.cpp selectGreedy.cpp
-EXECS = computeSim selectGreedy
+SRCS = computeSim.cpp svm.cpp selectGreedy.cpp modifyModel.cpp
+EXECS = computeSim selectGreedy modifyModel
 all: $(EXECS)
-computeSim: svm.o
+computeSim modifyModel: svm.o
+selectGreedy: NVMUtils.hpp
 
 %: %.o
 	${CXX} ${CXXFLAGS} $< -o $@
